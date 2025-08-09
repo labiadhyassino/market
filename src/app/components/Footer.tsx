@@ -18,7 +18,7 @@ export default function Footer() {
               <div className="w-8 h-8 bg-orange-400 rounded-full flex items-center justify-center">
                 <span className="text-white font-bold text-sm">M</span>
               </div>
-              <span className="font-bold text-gray-800">mini market</span>
+              <span className="font-bold text-gray-800">mind's up </span>
             </Link>
             <p className="text-gray-600 mb-4">
               Arina , Manzeh 6 
@@ -69,7 +69,7 @@ export default function Footer() {
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <Mail className="w-4 h-4 text-orange-500" />
-                <span className="text-gray-600">contact@minimarket.fr</span>
+                <span className="text-gray-600">mindsupm6@gmail.com</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="w-4 h-4 text-orange-500" />
