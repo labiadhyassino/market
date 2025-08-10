@@ -1,8 +1,7 @@
 'use client';
-
 import Image from 'next/image';
 import { Star, Plus } from 'lucide-react';
-import { useCart } from '../context/cardcontext'; // ✅ Import your cart hook
+import { useCart } from '../context/cardcontext';
 
 interface ProductCardProps {
   id: string;
@@ -14,15 +13,8 @@ interface ProductCardProps {
 }
 
 export default function ProductCard({ id, name, price, rating, image, category }: ProductCardProps) {
-  const { addToCart } = useCart(); // ✅ Get the addToCart function
-  
-  interface Product {
-    id: number;
-    name: string;
-    price: number;
-    image: string;
-  }
-  
+  const { addToCart } = useCart();
+
   const renderStars = (rating: number) => {
     return Array.from({ length: 5 }, (_, i) => (
       <Star
@@ -35,10 +27,19 @@ export default function ProductCard({ id, name, price, rating, image, category }
       />
     ));
   };
-  interface ProductCardProps {
-    product: Product;
-    onAddToCart: (product: Product) => void;
-  }
+
+  const handleAddToCart = () => {
+    console.log('Ajout au panier:', { id, name, price, image, rating, category }); // Pour débugger
+    
+    addToCart({ 
+      id: parseInt(id), // ← Convertir string en number
+      name, 
+      price, 
+      image, 
+      rating, 
+      category: category ?? '' 
+    });
+  };
 
   return (
     <div className="bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden group cursor-pointer transform hover:scale-105">
@@ -56,13 +57,13 @@ export default function ProductCard({ id, name, price, rating, image, category }
           </span>
         )}
       </div>
-
+      
       {/* Content */}
       <div className="p-4">
         <h3 className="font-semibold text-gray-800 mb-2 line-clamp-2">
           {name}
         </h3>
-        
+       
         {/* Rating */}
         <div className="flex items-center gap-1 mb-3">
           {renderStars(rating)}
@@ -70,7 +71,7 @@ export default function ProductCard({ id, name, price, rating, image, category }
             ({rating.toFixed(1)})
           </span>
         </div>
-
+        
         {/* Price and Add button */}
         <div className="flex items-center justify-between">
           <div>
@@ -79,7 +80,7 @@ export default function ProductCard({ id, name, price, rating, image, category }
             </span>
           </div>
           <button
-           onClick={() => addToCart({ id, name, price, image, rating, category: category ?? '' })}
+            onClick={handleAddToCart}
             className="bg-orange-500 hover:bg-orange-600 text-white p-2 rounded-full transition-colors shadow-md hover:shadow-lg"
           >
             <Plus className="w-4 h-4" />

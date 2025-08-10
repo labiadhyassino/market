@@ -20,13 +20,15 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body className={`${inter.className} bg-orange-50`}>
+      <CartProvider>
         <Header />
         <main className="min-h-screen">
-        <CartProvider>
+        
           {children}
-        </CartProvider>
+        
         </main>
         <Footer />
+        </CartProvider>
       </body>
     </html>
   )
