@@ -8,7 +8,7 @@ import { CartProvider } from './context/cardcontext';
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Mini Market Kids',
+  title: 'Mind s up Market',
   description: 'Le coin des gourmands pour les petits',
 }
 
