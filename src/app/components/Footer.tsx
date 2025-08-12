@@ -54,7 +54,7 @@ export default function Footer() {
                 <TikTokIcon className="w-5 h-5 text-black" />
               </Link>
               <Link
-                href="https://www.instagram.com/tonprofil"
+                href="https://www.instagram.com/les_einsteineurs?igsh=YnM2NGZkNWl0N28z "
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 bg-white rounded-full shadow-md hover:shadow-lg transition-all hover:scale-110"
