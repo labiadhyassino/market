@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Minus, Plus, Trash2, ShoppingBag, MapPin, Clock, Phone } from 'lucide-react';
+import { Minus, Plus, Trash2, ShoppingBag, MapPin, Clock, Phone, User, Baby } from 'lucide-react';
 
 interface CartItem {
   id: number;
@@ -26,6 +26,8 @@ export default function CartPage() {
   // État pour la modal de confirmation
   const [showModal, setShowModal] = useState(false);
   const [phoneNumber, setPhoneNumber] = useState('');
+  const [parentName, setParentName] = useState('');
+  const [childName, setChildName] = useState('');
 
   // Sauvegarder le panier dans localStorage à chaque changement
   useEffect(() => {
@@ -55,11 +57,31 @@ export default function CartPage() {
       `• ${item.name} x${item.quantity} - ${(item.price * item.quantity).toFixed(2)} DT`
     ).join('\n');
 
-    return `🛍️ *Nouvelle Commande Mind's up*\n\n📞 *Numéro:* ${phoneNumber}\n\n📋 *Détails de la commande:*\n${orderDetails}\n\n💰 *Total:* ${totalPrice.toFixed(2)} DT\n\n⏰ Temps de préparation: 15-20 minutes\n💵 Paiement sur place\n\nMerci pour votre commande !`;
+    return `🎓 *Commande Centre Mind's Up*
+
+👨‍👩‍👧‍👦 *Parent:* ${parentName}
+👶 *Enfant:* ${childName}
+📞 *Contact:* ${phoneNumber}
+
+🍽️ *Snacks commandés:*
+${orderDetails}
+
+💰 *Total:* ${totalPrice.toFixed(2)} DT
+💵 *Paiement sur place*
+
+Merci pour votre confiance !`;
   };
 
   // Fonction pour envoyer vers WhatsApp automatiquement
   const handleConfirmOrder = () => {
+    if (!parentName.trim()) {
+      alert('Veuillez saisir le nom du parent');
+      return;
+    }
+    if (!childName.trim()) {
+      alert('Veuillez saisir le nom de l\'enfant');
+      return;
+    }
     if (!phoneNumber.trim()) {
       alert('Veuillez saisir votre numéro de téléphone');
       return;
@@ -77,6 +99,8 @@ export default function CartPage() {
       setCartItems([]);
       setShowModal(false);
       setPhoneNumber('');
+      setParentName('');
+      setChildName('');
       localStorage.removeItem('cart');
     }, 1000);
   };
@@ -288,26 +312,7 @@ export default function CartPage() {
 
               {cartItems.length > 0 && (
                 <button 
-                  onClick={() => {
-                    // Message sans numéro de téléphone
-                    const orderDetails = cartItems.map(item => 
-                      `• ${item.name} x${item.quantity} - ${(item.price * item.quantity).toFixed(2)} DT`
-                    ).join('\n');
-
-                    const message = `🛍️ *Nouvelle Commande Mind's up*\n\n📋 *Détails de la commande:*\n${orderDetails}\n\n💰 *Total:* ${totalPrice.toFixed(2)} DT\n\n⏰ Temps de préparation: 15-20 minutes\n💵 Paiement sur place\n\nMerci pour votre commande !`;
-                    
-                    const whatsappNumber = '+21620470707';
-                    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-                    
-                    // Redirection immédiate
-                    window.location.href = whatsappUrl;
-                    
-                    // Vider le panier
-                    setTimeout(() => {
-                      setCartItems([]);
-                      localStorage.removeItem('cart');
-                    }, 1000);
-                  }}
+                  onClick={() => setShowModal(true)}
                   className="w-full btn-primary mb-3 sm:mb-4 text-base sm:text-lg py-3 sm:py-4 flex items-center justify-center space-x-2"
                 >
                   <span>Commander via WhatsApp</span>
@@ -330,24 +335,63 @@ export default function CartPage() {
               Finaliser votre commande
             </h3>
             
-            <div className="mb-4 sm:mb-6">
-              <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                Votre numéro de téléphone
-              </label>
-              <div className="relative">
-                <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
-                <input
-                  type="tel"
-                  id="phone"
-                  value={phoneNumber}
-                  onChange={(e) => setPhoneNumber(e.target.value)}
-                  placeholder="Ex: 20 123 456"
-                  className="w-full pl-10 sm:pl-12 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition-all text-sm sm:text-base"
-                />
+            <div className="space-y-4 mb-6">
+              {/* Nom du parent */}
+              <div>
+                <label htmlFor="parent" className="block text-sm font-medium text-gray-700 mb-2">
+                  Nom du parent
+                </label>
+                <div className="relative">
+                  <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
+                  <input
+                    type="text"
+                    id="parent"
+                    value={parentName}
+                    onChange={(e) => setParentName(e.target.value)}
+                    placeholder="Ex: Ahmed Ben Ali"
+                    className="w-full pl-10 sm:pl-12 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition-all text-sm sm:text-base"
+                  />
+                </div>
               </div>
-              <p className="text-xs text-gray-500 mt-2">
-                Ce numéro sera utilisé pour vous contacter concernant votre commande
-              </p>
+
+              {/* Nom de l'enfant */}
+              <div>
+                <label htmlFor="child" className="block text-sm font-medium text-gray-700 mb-2">
+                  Nom de l'enfant
+                </label>
+                <div className="relative">
+                  <Baby className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
+                  <input
+                    type="text"
+                    id="child"
+                    value={childName}
+                    onChange={(e) => setChildName(e.target.value)}
+                    placeholder="Ex: Mohamed"
+                    className="w-full pl-10 sm:pl-12 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition-all text-sm sm:text-base"
+                  />
+                </div>
+              </div>
+
+              {/* Contact */}
+              <div>
+                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                  Votre numéro de téléphone
+                </label>
+                <div className="relative">
+                  <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
+                  <input
+                    type="tel"
+                    id="phone"
+                    value={phoneNumber}
+                    onChange={(e) => setPhoneNumber(e.target.value)}
+                    placeholder="Ex: 20 123 456"
+                    className="w-full pl-10 sm:pl-12 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition-all text-sm sm:text-base"
+                  />
+                </div>
+                <p className="text-xs text-gray-500 mt-2">
+                  Ce numéro sera utilisé pour vous contacter concernant votre commande
+                </p>
+              </div>
             </div>
 
             {/* Résumé rapide */}

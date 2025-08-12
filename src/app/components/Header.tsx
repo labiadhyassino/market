@@ -29,7 +29,7 @@ export default function Header() {
               alt="Mind's up Logo"
               width={300}
               height={100}
-              className="h-20 w-auto" // ✅ Changé de h-8 à h-12 (ou h-16 pour plus grand)
+              className="h-12 w-auto" // ✅ Changé de h-8 à h-12 (ou h-16 pour plus grand)
               priority
             />
           </Link>
