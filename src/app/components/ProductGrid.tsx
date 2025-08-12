@@ -5,7 +5,7 @@ import ProductCard from './ProductCard';
 const sampleProducts = [
   {
     id: '1',
-    name: 'Mix Snack Varié',
+    name: 'Cookies Assortis',
     price: 4.99,
     rating: 4.2,
     image: '/delicious-cookies-arrangement.jpg',
@@ -13,7 +13,7 @@ const sampleProducts = [
   },
   {
     id: '2',
-    name: 'Chips Patate Douce',
+    name: 'Yaourt Maison',
     price: 3.50,
     rating: 4.5,
     image: '/recettes-yaourt-maison.jpg',
@@ -37,7 +37,7 @@ const sampleProducts = [
   },
   {
     id: '5',
-    name: 'Mix Fruits Secs',
+    name: 'Muffins Maison',
     price: 5.99,
     rating: 4.3,
     image: '/ALR-274250-perfect-pumpkin-muffins-VAT-4x3-1-fbc71f52281a4f0d9875d98359daac17.jpg',
@@ -45,7 +45,7 @@ const sampleProducts = [
   },
   {
     id: '6',
-    name: 'Crackers Légumes',
+    name: 'Jus de Fruits Frais',
     price: 3.75,
     rating: 4.1,
     image: '/191e7cad-ffe8-42ac-9872-856f143af5e8-removebg-preview.png',
@@ -53,7 +53,7 @@ const sampleProducts = [
   },
   {
     id: '7',
-    name: 'Mini Bretzels',
+    name: 'Boules d’Énergie',
     price: 2.80,
     rating: 4.4,
     image: '/boules-denergies-dattes-pistache-1-1.jpg',
@@ -69,13 +69,14 @@ const sampleProducts = [
   },
   {
     id: '9',
-    name: 'Chips Légumes',
+    name: 'Crème Glacée Banane',
     price: 4.10,
     rating: 4.2,
     image: '/vue-rapprochee-creme-glacee-banane_23-2151006029.avif',
     category: 'Légumes'
   }
-]
+];
+
 // Props pour passer la catégorie sélectionnée
 // Props pour passer la catégorie sélectionnée
 export default function ProductGrid({ selectedCategory }: { selectedCategory: string }) {
