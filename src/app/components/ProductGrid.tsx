@@ -8,7 +8,7 @@ const sampleProducts = [
     name: 'Cookies Assortis',
     price: 4.99,
     rating: 4.2,
-    image: '/delicious-cookies-arrangement.jpg',
+    image: '/produit 2.jpg',
     category: 'Mix'
   },
   {
@@ -16,7 +16,7 @@ const sampleProducts = [
     name: 'Yaourt Maison',
     price: 3.50,
     rating: 4.5,
-    image: '/recettes-yaourt-maison.jpg',
+    image: '/produit1.jpg',
     category: 'Chips'
   },
   {
@@ -73,6 +73,14 @@ const sampleProducts = [
     price: 4.10,
     rating: 4.2,
     image: '/vue-rapprochee-creme-glacee-banane_23-2151006029.avif',
+    category: 'Légumes'
+  },
+  {
+    id: '9',
+    name: 'gateaux au lait',
+    price: 4.10,
+    rating: 4.2,
+    image: '/gateaux.jpg',
     category: 'Légumes'
   }
 ];
