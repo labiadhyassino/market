@@ -13,7 +13,7 @@ export default function HomePage() {
       <ProductGrid selectedCategory={selectedCategory} />
              
       {/* Section vidéo promotionnelle */}
-      <section className="py-8 px-4">
+      <section className="py-8 px-3">
         <div className="max-w-4xl mx-auto">
           <div className="relative h-64 rounded-3xl overflow-hidden shadow-lg">
             {/* Vidéo de fond */}

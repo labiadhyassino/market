@@ -5,83 +5,82 @@ import ProductCard from './ProductCard';
 const sampleProducts = [
   {
     id: '1',
-    name: 'Cookies Assortis',
-    price: 4.99,
-    rating: 4.2,
+    name: 'produit',
+    price: 0,    rating: 4.2,
     image: '/produit 2.jpg',
     category: 'Mix'
   },
   {
     id: '2',
-    name: 'Yaourt Maison',
-    price: 3.50,
+    name: 'produit',
+    price: 0,
     rating: 4.5,
     image: '/produit1.jpg',
-    category: 'Chips'
+    category: 'Mix'
   },
   {
     id: '3',
-    name: 'Bâtonnets Céréales',
-    price: 2.99,
+    name: 'produit',
+    price: 0,
     rating: 4.0,
     image: '/PROTEIN_063_MAIN.avif',
-    category: 'Céréales'
+    category: 'Mix'
   },
   {
     id: '4',
-    name: 'Pop Corn Caramel',
-    price: 3.25,
+    name: 'produit',
+    price: 0,
     rating: 4.8,
     image: '/992x1340_7203.jpg',
-    category: 'Sucré'
+    category: 'Mix'
   },
   {
     id: '5',
-    name: 'Muffins Maison',
-    price: 5.99,
+    name: 'produit',
+    price: 0,
     rating: 4.3,
     image: '/ALR-274250-perfect-pumpkin-muffins-VAT-4x3-1-fbc71f52281a4f0d9875d98359daac17.jpg',
-    category: 'Fruits'
+    category: 'Mix'
   },
   {
     id: '6',
-    name: 'Jus de Fruits Frais',
-    price: 3.75,
+    name: 'produit',
+    price: 0,
     rating: 4.1,
     image: '/191e7cad-ffe8-42ac-9872-856f143af5e8-removebg-preview.png',
-    category: 'Crackers'
+    category: 'Mix'
   },
   {
     id: '7',
-    name: 'Boules d’Énergie',
-    price: 2.80,
+    name: 'produit',
+    price: 0,
     rating: 4.4,
     image: '/boules-denergies-dattes-pistache-1-1.jpg',
-    category: 'Salé'
+    category: 'Mix'
   },
   {
     id: '8',
-    name: 'Granola Bites',
-    price: 4.20,
+    name: 'produit',
+    price: 0,
     rating: 4.6,
     image: '/téléchargement (8).jpg',
-    category: 'Granola'
+    category: 'Mix'
   },
   {
     id: '9',
-    name: 'Crème Glacée Banane',
-    price: 4.10,
+    name: 'produit',
+    price: 0,
     rating: 4.2,
     image: '/vue-rapprochee-creme-glacee-banane_23-2151006029.avif',
-    category: 'Légumes'
+    category: 'Mix'
   },
   {
     id: '9',
-    name: 'gateaux au lait',
-    price: 4.10,
+    name: 'produit',
+    price: 0,
     rating: 4.2,
     image: '/gateaux.jpg',
-    category: 'Légumes'
+    category: 'Mix'
   }
 ];
 
